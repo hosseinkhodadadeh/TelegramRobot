@@ -14,7 +14,7 @@ if(($lastRun+120)<time()){
 require_once 'madeline.php';
 require_once __DIR__ .'/hossein/TextProcessor.php';
 //require 'vendor/autoload.php';
-require_once  'Files-Copy.php';
+//require_once  'Files-Copy.php';
 $MadelineProto = new \danog\MadelineProto\API('session.madeline');
 $me = $MadelineProto->start();
 $me = $MadelineProto->get_self();
@@ -129,7 +129,8 @@ class EventHandler extends \danog\MadelineProto\EventHandler
 						$time = microtime(true);
 						$myCustomDir = str_replace('\\', '/',__DIR__ . '\\tmp' );
 						$this->fileName='filename' . microtime(true);
-						$this->setDownloadFileName($this->fileName);
+						//$this->setDownloadFileName($this->fileName);
+						//$file = $this->download_to_dir($update,$myCustomDir );
 						$file = $this->download_to_dir($update,$myCustomDir );
 						//$this->messages->sendMessage(['peer' => $update, 'message' => $file.' in '.(microtime(true) - $time).' seconds', 'reply_to_msg_id' => $update['message']['id'], 'entities' => [['_' => 'messageEntityPre', 'offset' => 0, 'length' => strlen($res), 'language' => 'json']]]);
 						//$this->messages->sendMessage(['peer' => $update, 'message' => 'Downloaded to '.$file.' in '.(microtime(true) - $time).' seconds', 'reply_to_msg_id' => $update['message']['id'], 'entities' => [['_' => 'messageEntityPre', 'offset' => 0, 'length' => strlen($res), 'language' => 'json']]]);
@@ -210,7 +211,7 @@ class EventHandler extends \danog\MadelineProto\EventHandler
 		
 	}
 	public function getConToDb(){
-		$conn = new mysqli('localhost', 'root', 'h%f*6sKs3', 're30deh');
+		$conn = new mysqli('localhost', 'root', 'kijNmS62%78ijK', 'lookshik');
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
 		}
