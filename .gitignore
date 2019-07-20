@@ -111,3 +111,5 @@ madeline.phar
 madeline.phar.version
 big
 *.phar
+/tmp
+.incommingLastRun.txt
