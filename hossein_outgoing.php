@@ -7,7 +7,7 @@ $MadelineProto = new \danog\MadelineProto\API('session.madeline');
 $me = $MadelineProto->start();
 $me = $MadelineProto->get_self();
 //\danog\MadelineProto\Logger::log($me);
-		$conn = new mysqli('localhost', 'root', 'h%f*6sKs3', 're30deh');
+		$conn = new mysqli('localhost', 'root', 'kijNmS62%78ijK', 'lookshik');
 		// Check connection
 		if ($conn->connect_error) {
 			die("Connection failed: " . $conn->connect_error);
@@ -40,7 +40,7 @@ $me = $MadelineProto->get_self();
 					
 					$output_text=$rec['text'];
 					//$output_text=html_entity_decode($output_text);
-					$output_text='RE30DEH-'.str_pad(($rec['code']+$posted), 6,"0", STR_PAD_LEFT). "\r\n " .$output_text;
+					$output_text='lookshik-'.str_pad(($rec['code']+$posted), 6,"0", STR_PAD_LEFT). "\r\n " .$output_text;
 					
 					
 					$textprocessor=new TextProcessor;
@@ -64,7 +64,8 @@ $me = $MadelineProto->get_self();
 						$output_text=$textprocessor->gettext();
 						
 						
-						if(file_exists (__DIR__. "/tmp/".$rec['img_src'] .'.jpg')){
+						if(file_exists ($rec['img_src'])){
+						//if(file_exists (__DIR__. "/tmp/".$rec['img_src'] .'.jpg')){
 							//creating re30deh watermark on product image
 							/*
 							$logo = imagecreatefrompng( __DIR__. "/hossein/channel_logo.png");
@@ -95,7 +96,7 @@ $me = $MadelineProto->get_self();
 							imagettftext($logo, 50, 0, 140, 350, $white, $font, $text);
 
 
-							$src = imagecreatefromjpeg(__DIR__. "/tmp/".$rec['img_src'] .'.jpg');
+							$src = imagecreatefromjpeg($rec['img_src']);
 							$logo_width=imagesx ($src)/4;
 							$logo=imagescale ($logo,$logo_width);
 							imagecopymerge_alpha($src, $logo, 10, 9, 0, 0, $logo_width, $logo_width, 100);
@@ -109,7 +110,7 @@ $me = $MadelineProto->get_self();
 							}elseif(imagesx($src)<300){
 								continue;
 							}
-							imagejpeg ($src,__DIR__. "/tmp/".$rec['img_src'] .'.jpg');
+							imagejpeg ($src,$rec['img_src'] );
 							//watermark finished
 							
 							//start sending post to channel
@@ -118,7 +119,8 @@ $me = $MadelineProto->get_self();
 								'peer' => '@'.$rec['channel_to'],
 								'media' => [
 									'_' => 'inputMediaUploadedPhoto',
-									'file' => __DIR__ . '/tmp/'. $rec['img_src'] .'.jpg'
+									'file' =>  $rec['img_src'] 
+									//'file' => __DIR__ . '/tmp/'. $rec['img_src'] .'.jpg'
 									//'file' => str_replace('\\', '/',__DIR__ . '\\tmp\\' ) . $rec['img_src'] .'.jpg'
 								],
 								'message' => $output_text,

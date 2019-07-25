@@ -637,12 +637,12 @@ public function getProductType(){
 		return 'roosari';
 	}elseif(mb_strpos($localText,'پیراهن')>0){
 		return 'pirahan';
-	}elseif(mb_strpos($localText,'qq')>0){
-		return 'qq';
-	}elseif(mb_strpos($localText,'qq')>0){
-		return 'qq';
-	}elseif(mb_strpos($localText,'qq')>0){
-		return 'qq';
+	}elseif(mb_strpos($localText,'مایو')>0){
+		return 'mayo';
+	}elseif(mb_strpos($localText,'جوراب')>0){
+		return 'joorab';
+	}elseif(mb_strpos($localText,'سرهمی')>0){
+		return 'sarehami';
 	}elseif(mb_strpos($localText,'qq')>0){
 		return 'qq';
 	}elseif(mb_strpos($localText,'qq')>0){

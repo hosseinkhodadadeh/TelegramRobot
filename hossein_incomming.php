@@ -132,6 +132,7 @@ class EventHandler extends \danog\MadelineProto\EventHandler
 						//$this->setDownloadFileName($this->fileName);
 						//$file = $this->download_to_dir($update,$myCustomDir );
 						$file = $this->download_to_dir($update,$myCustomDir );
+						$this->fileName=$file;
 						//$this->messages->sendMessage(['peer' => $update, 'message' => $file.' in '.(microtime(true) - $time).' seconds', 'reply_to_msg_id' => $update['message']['id'], 'entities' => [['_' => 'messageEntityPre', 'offset' => 0, 'length' => strlen($res), 'language' => 'json']]]);
 						//$this->messages->sendMessage(['peer' => $update, 'message' => 'Downloaded to '.$file.' in '.(microtime(true) - $time).' seconds', 'reply_to_msg_id' => $update['message']['id'], 'entities' => [['_' => 'messageEntityPre', 'offset' => 0, 'length' => strlen($res), 'language' => 'json']]]);
 					}

@@ -10,7 +10,7 @@
         unlink($file);
 		continue;
       }
-	  if(filesize($file)>500000){
+	  if(filesize($file)>1000000){
 		  echo "$file size " . filesize($file) . "\n";
 		  unlink($file);
 		  
@@ -20,6 +20,7 @@
   
 
  //Deleting from database
+ /*
 $conn = new mysqli('localhost', 'root', 'h%f*6sKs3', 're30deh');
 
 if ($conn->connect_error) {
@@ -48,7 +49,7 @@ foreach ($result as $rec){
 	$sql="delete from `incommingposts` where id =".$rec['id'];
 	$conn->query($sql) ;
 }
-
+*/
 
 
 ?>
